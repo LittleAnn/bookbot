@@ -42,7 +42,23 @@ def main():
         for letter in lowered:
             if letter in letter_count:
                 letter_count[letter] +=1
-        return(letter_count)
+        print(letter_count)
+ 
+        character_list=[]
+        for char, num in letter_count.items():
+            character_list.append({'char':char, 'num':num})
+        def sort_on(dict):
+            return dict['num']
+        
+        character_list.sort(reverse = True, key=sort_on)
+        print('Starting report')
+        print(f'{count} words found in the document\n')
+        
+        for char_dict in character_list:
+         print(f"The '{char_dict['char']}' character was found {char_dict['num']} times")
+
+        print("--- End report ---")
+
 
 
 
